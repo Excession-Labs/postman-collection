@@ -37,4 +37,4 @@ Last run on 2026-11-09: 8 requests, 35 assertions, 0 failures.
 ## Licenses
 
 - The collection is MIT licensed (see `LICENSE`).
-- The provider data from pentestcompare.com is CC BY 4.0. Credit: Excession Labs, pentestcompare.com.
+- The provider data from pentestcompare.com is MIT. Credit: Excession Labs, pentestcompare.com.

@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "Excession Labs public security APIs",
-    "description": "Public endpoints of Excession Labs (https://excessionlabs.ai) that answer today: the security headers checker and its MCP server on penetrationtestservices.com, and the provider dataset, search index, API catalog and MCP server on pentestcompare.com. No credentials are needed. The provider data is CC BY 4.0. The header checker allows 12 requests per minute per IP.",
+    "description": "Public endpoints of Excession Labs (https://excessionlabs.ai) that answer today: the security headers checker and its MCP server on penetrationtestservices.com, and the provider dataset, search index, API catalog and MCP server on pentestcompare.com. No credentials are needed. The provider data is MIT. The header checker allows 12 requests per minute per IP.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -95,7 +95,7 @@
             "method": "GET",
             "header": [],
             "url": "https://pentestcompare.com/data/providers.json",
-            "description": "Full provider dataset, licensed CC BY 4.0. Top-level keys: publisher, license, license_url, source, note, providers. Each provider has slug, name, website, type, delivery, scope, pricing_model, prices, turnaround, retesting and more. Unknown values read 'Not published'. Credit: Excession Labs, pentestcompare.com."
+            "description": "Full provider dataset, licensed MIT. Top-level keys: publisher, license, license_url, source, note, providers. Each provider has slug, name, website, type, delivery, scope, pricing_model, prices, turnaround, retesting and more. Unknown values read 'Not published'. Credit: Excession Labs, pentestcompare.com."
           },
           "event": [
             {
@@ -106,7 +106,7 @@
                   "pm.test(\"Status is 200\", function () { pm.response.to.have.status(200); });",
                   "var j = pm.response.json();",
                   "pm.test(\"Content-Type is JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\"); });",
-                  "pm.test(\"Dataset metadata\", function () { pm.expect(j.publisher).to.eql(\"Excession Labs\"); pm.expect(j.license).to.eql(\"CC BY 4.0\"); pm.expect(j.license_url).to.be.a(\"string\"); });",
+                  "pm.test(\"Dataset metadata\", function () { pm.expect(j.publisher).to.eql(\"Excession Labs\"); pm.expect(j.license).to.eql(\"MIT\"); pm.expect(j.license_url).to.be.a(\"string\"); });",
                   "pm.test(\"providers is a non-empty array\", function () { pm.expect(j.providers).to.be.an(\"array\").that.is.not.empty; });",
                   "pm.test(\"Each provider has slug, name, website, delivery and scope\", function () { j.providers.forEach(function (p) { pm.expect(p).to.include.all.keys(\"slug\",\"name\",\"website\",\"delivery\",\"scope\"); }); });",
                   "pm.test(\"Slugs are unique\", function () { var s = j.providers.map(function (p) { return p.slug; }); pm.expect(new Set(s).size).to.eql(s.length); });"
@@ -121,7 +121,7 @@
             "method": "GET",
             "header": [],
             "url": "https://pentestcompare.com/data/providers.csv",
-            "description": "The same provider data as one CSV file, licensed CC BY 4.0. One row per provider, with a header row."
+            "description": "The same provider data as one CSV file, licensed MIT. One row per provider, with a header row."
           },
           "event": [
             {
